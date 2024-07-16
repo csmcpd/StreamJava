@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+/*
+ * Consumer<T>: Representa uma operação que aceita 
+ * um argumento do tipo T e não retorna nenhum resultado. 
+ * É utilizada principalmente para realizar ações ou 
+ * efeitos colaterais nos elementos do Stream 
+ * sem modificar ou retornar um valor.
+ */
 public class ConsumerExample {
     public static void main(String[] args) {
         // Criar uma lista de números inteiros
@@ -12,23 +19,11 @@ public class ConsumerExample {
         // Usar o Consumer com expressão lambda para imprimir números pares
         Consumer<Integer> imprimirNumeroPar = numero -> {
             if (numero % 2 == 0) {
-                System.out.println("Imprimindo números pares com consumer" + numero);
+                System.out.println(numero);
             }
         };
 
         // Usar o Consumer para imprimir números pares no Stream
         numeros.stream().forEach(imprimirNumeroPar);
-
-        teste(numeros);
-    }
-
-    public static void teste(List<Integer> numeros) {
-        for (Integer integer : numeros) {
-            if (integer % 2 == 0) {
-                System.out.println("Imprimindo números pares sem consumer" + integer);
-            }
-        }
     }
 }
-
-
